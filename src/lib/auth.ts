@@ -5,7 +5,7 @@ import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: 'pg', // or "pg" or "mysql"
-    //usePlural: true,
+    usePlural: true,
   }),
   user: {
     modelName: 'userTable',
@@ -15,5 +15,8 @@ export const auth = betterAuth({
   },
   session: {
     modelName: 'sessionTable',
+  },
+  verification: {
+    modelName: 'verificationTable',
   },
 })
